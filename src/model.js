@@ -42,16 +42,9 @@ Model.prototype.getData = function (req, callback) {
       // 5. Fire callback
       callback(null, geojson)
     })
-
-
   } catch (err) {
     // 6. Handle any errors
     callback(err, null)
-  }
-
-  const geojson = {
-    type: 'FeatureCollection',
-    features: []
   }
 }
 
