@@ -1,14 +1,23 @@
-# koop-provider-socrata
+# @koopjs/provider-socrata
+
+[![npm](https://img.shields.io/npm/v/@koopjs/provider-socrata)](https://www.npmjs.com/package/@koopjs/provider-socrata) [![Build Status](https://www.travis-ci.org/koopjs/koop-provider-socrata.svg?branch=master)](https://www.travis-ci.org/koopjs/koop-provider-socrata)
 
 A minimal Koop 3.x provider for connecting to Socrata data sources.
 
-### Accessing Socrata data
-Use the Koop `host` and `id` parameter to dynamically point your provider to a Socrata resource.  
-For example, to access the data at [https://data.ct.gov/resource/y6p2-px98.json](https://data.ct.gov/resource/y6p2-px98.json) you would use a `host` value of `data.ct.gov` and an `id` value of `y6p2-px98`. This would translate to the following Koop FeatureServer endpoint:  
+## Installation
+
+``` bash
+npm install @koopjs/provider-socrata
+```
+
+## Accessing Socrata data
+
+Use the Koop `host` and `id` parameter to dynamically point your provider to a Socrata resource.
+For example, to access the data at [https://data.ct.gov/resource/y6p2-px98.json](https://data.ct.gov/resource/y6p2-px98.json) you would use a `host` value of `data.ct.gov` and an `id` value of `y6p2-px98`. This would translate to the following Koop FeatureServer endpoint:
 
 [http://localhost:8080/koop-provider-socrata/data.ct.gov/y6p2-px98/FeatureServer/0/query](http://localhost:8080/koop-provider-socrata/data.ct.gov/y6p2-px98/FeatureServer/0/query)
 
-### Testing
+## Testing
 
 This project uses [mocha](https://www.npmjs.com/package/mocha) as the testing framework and [chaijs](https://www.chaijs.com/) as the assertion library. All test files in the `test` directory should have the special extension `.test.js`, which will be executed by the command:
 
@@ -16,7 +25,7 @@ This project uses [mocha](https://www.npmjs.com/package/mocha) as the testing fr
 $ npm test
 ```
 
-### Dev Server
+## Dev Server
 
 This project by default uses the [Koop CLI](https://github.com/koopjs/koop-cli) to set up the dev server. It can be invoded via
 

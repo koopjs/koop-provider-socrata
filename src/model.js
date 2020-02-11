@@ -28,24 +28,25 @@ Model.prototype.getData = function (req, callback) {
   // 1. Construct the Socrata API request URL
   const url = `https://${host}/resource/${id}.geojson`
 
-  try {
-    // 2. Make the request to the remote API
-    fetch(url).then(resp => {
-      if (!resp.ok) throw new Error(`Request to ${url} failed; ${status}, ${statusText}.`)
-      return resp.json()
-    }).then(geojson => {
+  // 2. Make the request to the remote API
+  fetch(url).then(resp => {
+    if (!resp.ok) {
+      const status = resp.status
+      const statusText = resp.statusText
+      throw new Error(`Request to ${url} failed; ${status}, ${statusText}.`)
+    }
 
-      // 4. Create Metadata
-      const geometryType = _.get(geojson, 'features[0].geometry.type' || 'Point')
-      geojson.metadata = { geometryType }
+    return resp.json()
+  }).then(geojson => {
+    // 4. Create Metadata
+    const geometryType = _.get(geojson, 'features[0].geometry.type', 'Point')
+    geojson.metadata = { geometryType }
 
-      // 5. Fire callback
-      callback(null, geojson)
-    })
-  } catch (err) {
-    // 6. Handle any errors
-    callback(err, null)
-  }
+    // 5. Fire callback
+    callback(null, geojson)
+  })
+  // 6. Handle any errors
+    .catch(callback)
 }
 
 module.exports = Model

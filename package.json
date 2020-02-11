@@ -5,23 +5,35 @@
   "main": "src/index.js",
   "scripts": {
     "test": "mocha 'test/**/*.test.js'",
-    "start": "koop serve"
+    "start": "koop serve --debug --watch"
   },
   "dependencies": {
-    "config": "^3.1.0",
+    "config": "^3.2.5",
     "lodash": "^4.17.15",
     "node-fetch": "^2.6.0"
   },
   "devDependencies": {
-    "@koopjs/cli": "^0.4.0",
+    "@koopjs/cli": "^0.6.0",
     "chai": "^4.2.0",
-    "mocha": "^6.1.4",
-    "nock": "^11.7.0"
+    "husky": "^4.2.1",
+    "lint-staged": "^10.0.7",
+    "mocha": "^7.0.1",
+    "nock": "^11.8.2",
+    "standard": "^14.3.1"
   },
   "repository": "",
   "keywords": [
     "koop",
     "plugin",
-    "provider"
-  ]
+    "provider",
+    "socrata"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": "standard --fix"
+  }
 }
