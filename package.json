@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "mocha 'test/**/*.test.js'",
-    "start": "koop serve"
+    "start": "koop serve --debug --watch"
   },
   "dependencies": {
     "config": "^3.2.5",
